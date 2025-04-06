@@ -56,8 +56,8 @@ double MinDistance(const vector<Point>& pointsX, int inicio, int final, vector<P
     int rightSize = n - leftSize;
     // Los elementos restantes ya están en la parte derecha de pointsY
 
-    double dL = MinDistanceRecOptimized(pointsX, inicio, mid, pointsY, stripY);
-    double dR = MinDistanceRecOptimized(pointsX, mid, final, pointsY, stripY);
+    double dL = MinDistance(pointsX, inicio, mid, pointsY, stripY);
+    double dR = MinDistance(pointsX, mid, final, pointsY, stripY);
     double dLR = min(dL, dR);
 
     // Construir el intervalo de puntos cercanos al eje medio
@@ -80,6 +80,7 @@ double MinDistance(const vector<Point>& pointsX, int inicio, int final, vector<P
     // Y evita la necesidad de reallocar memoria    
     inplace_merge(pointsY.begin() + inicio, pointsY.begin() + inicio + leftSize, pointsY.begin() + final, compareY);
 
+    printf("dL: %f, dR: %f, dLR: %f\n", dL, dR, dLR); // Debugging
     return dLR;
 }
 
@@ -100,5 +101,5 @@ double MinDistanceOptimized(vector<Point>& points) {
     vector<Point> stripY(n);
 
     //Llamar a la función recursiva optimizada
-    return MinDistanceRecOptimized(pointsX, 0, n, pointsY, stripY);
-}
+    return MinDistance(pointsX, 0, n, pointsY, stripY);
+}   
