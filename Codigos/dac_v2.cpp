@@ -29,7 +29,7 @@ double distance(const Point& p1, const Point& p2) {
 // Recibe los puntos ordenados por X y dos vectores auxiliares para evitar allocaciones
 double MinDistance(const vector<Point>& pointsX, int inicio, int final, vector<Point>& pointsY, vector<Point>& stripY) {
     int n = final - inicio;
-
+    
     if (n <= 3) {
         double minD = numeric_limits<double>::max();
         for (int i = inicio; i < final; ++i) {
