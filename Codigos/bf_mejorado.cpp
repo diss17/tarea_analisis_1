@@ -11,7 +11,7 @@ double bruteForceMinDistance(const vector<Point> &points)
     int n = points.size();
     if (n = 1)
     {
-        return 1e9;
+        return minDistance;
     }
     else
     {
